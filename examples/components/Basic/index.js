@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   Text,
   View
@@ -33,14 +33,35 @@ var styles = {
   }
 }
 
-export default () => <Swiper style={styles.wrapper} showsButtons>
-  <View style={styles.slide1}>
-    <Text style={styles.text}>Hello Swiper</Text>
-  </View>
-  <View style={styles.slide2}>
-    <Text style={styles.text}>Beautiful</Text>
-  </View>
-  <View style={styles.slide3}>
-    <Text style={styles.text}>And simple</Text>
-  </View>
-</Swiper>
+export default class Basic extends Component {
+  state = {
+    text: 'Hello swiper'
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        text: 'Hi Swiper'
+      });
+    }, 2000);
+  }
+
+  render() {
+    const {text} = this.state;
+    return (
+      <View style={{height: 500}}>
+        <Swiper style={styles.wrapper}>
+          <View style={styles.slide1}>
+            <Text style={styles.text}>{text}</Text>
+          </View>
+          <View style={styles.slide2}>
+            <Text style={styles.text}>Beautiful</Text>
+          </View>
+          <View style={styles.slide3}>
+            <Text style={styles.text}>And simple</Text>
+          </View>
+        </Swiper>
+      </View> 
+    );
+  }
+}
