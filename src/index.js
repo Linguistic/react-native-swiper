@@ -225,8 +225,8 @@ export default class extends Component {
 
     // Default: horizontal
     initState.dir = props.horizontal === false ? 'y' : 'x'
-    initState.width = props.width || width
-    initState.height = props.height || height
+    // initState.width = props.width || width
+    // initState.height = props.height || height
     initState.offset[initState.dir] = initState.dir === 'y'
       ? height * props.index
       : width * props.index
